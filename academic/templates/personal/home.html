@@ -1,0 +1,46 @@
+{% extends "personal/header.html" %}
+{% block content %}
+{% load static %}
+<!--jumbotron-->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-center" >Welcome to Academic Kingdom!</h1>
+    <p class="lead text-center" >  Here you will be able to find academic lessons to improve your skills in learning or teaching.
+      Use and add to the resources here so we can spread education arcoss the web and bring knowledge to everyone.</p>
+  </div>
+</div>
+<!--2 columns-->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src="{% static '/personal/img/IMG_6610.JPG' %}" alt="..." class="img-thumbnail">
+    </div>
+    <div class="col-sm">
+      <p class="justify"> My name is James Kingdom and my goal for this website
+        is to bring education to everyone that has access to them. This will be the
+        cross roads of education. students will come here to learn and teachers will come here to
+        teach. This should not take the mold of education has we think of it as it is now, but
+        what it can be. It could be a 20 year old programer teaching a 50 year old to
+        program his first web page. A 60 year old gambler teaching a 18 year old about
+        the odds in craps. Here we are only limited by our imaganation and the knowledge
+        that you want to pass on.
+    </div>
+<!--Lessons-->
+<div class="container">
+    <div class="card-columns">
+      <div>
+        {% for post in object_list %}
+          <div class="card" style="width: 20rem;">
+            <div class="card-body">
+              <h3 class="card-title">{{post.title}}</h3>
+              <h6> {{ post.ls }} <h6>
+                <br>
+              <a href="/blog/{{post.id}}" class="btn btn-primary">Lesson</a>
+            </div>
+          </div>
+        <br>
+         {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
